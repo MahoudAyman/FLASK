@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    <h1>Login or Register</h1>
+    
+    <form action="/login" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <input type="submit" value="Login">
+    </form>
+
+    <hr>
+
+    <form action="/register" method="post">
+        <label for="new_username">New Username:</label>
+        <input type="text" id="new_username" name="username" required><br>
+
+        <label for="new_password">New Password:</label>
+        <input type="password" id="new_password" name="password" required><br>
+
+        <input type="submit" value="Register">
+    </form>
+
+
+
+    <h2>Login</h2>
+    <form method="post" action="{{ url_for('login') }}">
+        <label for="username">Username:</label>
+        <input type="text" name="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br>
+        <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="{{ url_for('index') }}">Register here</a></p>
+    <p>Forgot your password? <a href="{{ url_for('change_password') }}">Change it here</a></p>
+</body>
+
+
+
+
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+
+     <script>
+        // JavaScript للتبديل بين صفحتي Login و Logout
+        function showLogin() {
+            document.querySelector('.login-container').style.display = 'flex';
+            document.querySelector('.logout-container').style.display = 'none';
+        }
+
+        function showLogout() {
+            document.querySelector('.login-container').style.display = 'none';
+            document.querySelector('.logout-container').style.display = 'flex';
+        }
+    </script>
+
+    
+</body>
+</html>
